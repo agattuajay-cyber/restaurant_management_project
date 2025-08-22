@@ -1,56 +1,40 @@
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-}
+# models.py
+from django.db import models
 
-.container {
-    max-width: 600px;
-    padding: 20px;
-}
+class Restaurant(models.Model):
+    name = models.CharField(max_length=100)
 
-h1 {
-    font-size: 8rem;
-    font-weight:bold;
-    color: #e74c3c;
-    margin-bottom: 10px;
-}
+    def_str_(self):
+        return self.name
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
+# views.py
+from django.shortcuts import render
+from .models import Restaurant
 
-p {
-    font-size: 1rem;
-    margin-bottom: 25px;
-    color: #555;
-}
+def home_view(request):
+    restaurant = Restaurant.objects.first() # get the first restaurant from DB
+    restaurant_name = restaurant.name if restaurant else "MY Restaurant"
+    return render(request,"home.html",{"restaurant_name": restaurant})
 
-a {
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    background: #e74c3c;
-    color: white;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
+# urls.py
+from django.urls import path
+from . import views
 
-a:hover {
-    background: #c0392b;
-    }
-   </style>
+urlpatterns = [
+    path("", view.home_view,name="home"),
+ ]
+
+ # templates/home.html
+ "" "
+ <!DOCTYPE html>
+ <html>
+ <head>
+        <title>{{ request_name}}</title>
   </head>
- <body>
-   <div class="container">
-   <h1>404</h1>
-   <h2>Oops! Page Not Found</h2>
-   <p>The Page you are looking for might have been removed, had its name changed, or is temporarily unaviable.</p>
-   <a href="/">back to Home</a>
-   </div
-  </body>
- </html>  
+  <body>
+       <h1>Welcome to {{ restaurant_name }}</h1>
+       <p>Enjoy delicious food at {{ restaurant_name }}!</p>
+   </boby>
+   </html>
+   "" ""       
+
