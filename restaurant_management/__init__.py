@@ -1,73 +1,46 @@
-# models.py
-from django.db import models
-
-class Restaurent(models.Models):
-    name = models.CharField(max_length=100)
-
-    def_str_(self):
-        return self.name
-
-# view.py from django.shortcuts import render
-from .models import Restaurant 
-
-def home_view(request):
-    restaurant = Restaurant.objects.first() #get the first restaurant from DB
-    restaurant_name = restaurant.name if restaurant else "My Restaurant"
-    return render(request,"home.html",{"restaurent_name": restaurent_name})
-
-
-#urls.py
-from django.urls import path
-from.import views
-
-urlpatterns =[
-    path("",view.home_view,name="home"),
-]
-
-#templates/home.html
-"""
-<DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ restaurent_name }}</title>
-    <style>
-      body {
-        font-family: 'segoe UI',Arial,sans-serif;
-        background: linear-gradient(to right,#f9f9f9, #e6e6e6);
-        color:#333;
-        margin: 0;
-        padding: 20px 0;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2)
-    }
-    h1 {
-        margin:0;
-        font-size:2.5rem;
-    }
-    main {
-        padding: 40px;
-    }
-    p {
-        font-size: 1.2rem;
-        color: #555;
-    }
-    footer {
-        margin-top:50px;
-        padding: 15px;
-        background-color: #333;
-        color: #eee;
-
-    }
-   </style>
+   <meta charset="UTF-8"
+   <title>Homepage</title>
   </head>
-  <body>
-      <header>
-         <h1>Welcome to {{ restaurant_name }}</h1>
-        <header>
-        </main>
-            <p>Enjoy delicious food at <strong>{{ restaurant_name }}</strong>!</p>
-        </main>
-        <footer>
-            <p>&copy; {{ restaurant_name }} -All rights reserved.</p>
-        </footer>
-        </html>
-        """                        
+  <body style="font-family:Arial,sans-serif;background-color:#f9f9f9;margin:O;padding: O;">
+
+  <!--Header--->
+  <div style="background-color:#4CAF5O;padding:20px;text-align:center;color:white;">
+    <h1 style="margin:0;font-size:36px;">Welcome to Our Homepage</h1>
+     <p style-"margin:5px 0 0;font-size:18px;">Making things simple and beautiful</p>
+</div>
+
+<!--Navigation --->
+<div style="background-color: #333; overflow:hidden;">
+   <a href="#" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Home</a>
+   <a href="#" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">About</a>
+   <a href="#" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Services</a>
+   <a href="#" style="float: left; display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none;">Contact</a>
+  </div> 
+ 
+ 
+<!--Main Content-->
+<div style="max-width:800px;margin:40px auto;padding:20px;background:white;box-shadow:0 4px 8px rgba(0,0,0,0.1);border-radius:8px;text-align:center;">
+  <h2 style="color:#333;margin-bottom: 15px;">AboutUs</h2>
+  <p style="color:#555;line-height: 1.6;font-size: 16px;">
+    We aim to deliver a seamless and visually appealing experience to our users.
+    This homepage is styled with simple inline CSS for quick improvements.
+  </p>
+    <button style="background-color: #4CAF50; border: none; color: white; padding: 12px 25px; margin-top: 20px; font-size: 16px; border-radius: 5px; curson: pointer;">
+      learn More
+    </button>
+    </div>  
+
+  <!--Footer--->
+  <div style="background-color:#333;color:white;text_align:center;padding:15px;margin-top;40px;">
+     <p style="margin: 0; font-size:14px;">&copy; 2025 My website. all rights resereved.</p>
+  </div>
+
+  </body>
+  </html>   
+
+
+
+  
