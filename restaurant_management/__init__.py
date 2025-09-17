@@ -2,79 +2,60 @@
 <html lang="en">
 <head>
   <meta charest="UTF-8">
-  <title>Homepage</title>
+  <title>Contact Us</title>
   <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
+        background-color: #f4f6f8;
         margin: 0;
         padding: 0;
+    }
+    
+    .Container {
+        width: 60%;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+     h1 {
+        text-align: center;
         color: #333;
     }
 
-/#Header styling */
-header {
-    background-color:#4CAF50;
-    color:white;
-    text-align: center;
-    padding: 20px 0;
-  }
+    .Contact-info {
+        margin-top: 20px;
+        line-height: 1.8;
+        font-size: 16px;
+    }
 
-  header h1 {
-    margin: 0;
-    font-size:2.2em;
-  }
+    .contact-info p {
+        margin: 8px 0;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #777;
+        font-size: 14px;
+    }
+   </style>
+  </head>
+  <body>
+    <div class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+       <p><strong>Email:</strong> support@example.com</p>
+       <p><strong>Phone:</strong> +91 98765 43210</p>
+       <p><strong>Address:</strong> 123 Main street,Hyderbad,India</p>
+     </div>
+     <div class="footer">
+        <p>&copy; 2025 MyCompany.All Right Reserved.</P>             
+       </div>
+       </div>
+      </body>
+      </html>     
 
-  /#Main content styling */
-  main {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-  }
-
-  p {  
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-
-  /* Footer styling */
-   footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    margin-top:20px;
-   }
-
-   footer p {
-    margin: 0;
-    font-size: 0.9em;
-   }
-  </style>
- </head>
- <body>
-   <!---Header --->
-   <header>
-     <h1>Welcome to My Website</h1>
-    </header>
-
-    <!--Main Content -->
-    <main>
-    <h2>About Us</h2>
-    <p>
-      this is a simple homepage desingned with basic CSS styling to improve readability and aesthetics.
-    </p>
-    <p>
-       You can add more sections and content here to make the site more engaging.
-    </p>
-   </main>
-
-   <!---Footer -->
-   <footer>
-     <p>&copy; 2025 My Website. All rights reserved.</p>
-    </footer>
-   </body>
-   </html>
 
 
 
