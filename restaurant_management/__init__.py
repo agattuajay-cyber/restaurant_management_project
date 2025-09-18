@@ -1,60 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charest="UTF-8">
-  <title>Contact Us</title>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f6f8;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .Container {
-        width: 60%;
-        margin: 50px auto;
-        background: #fff;
-        padding: 20px 30px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    }
-     h1 {
-        text-align: center;
-        color: #333;
-    }
+# settings.py (add at bottom)
+RESTAURANT_NAME = "tasty Bites"
+RESTAURENT_PHONE = "+91-9876543210"
 
-    .Contact-info {
-        margin-top: 20px;
-        line-height: 1.8;
-        font-size: 16px;
-    }
+# views.py
+from django.conf import settingsfrom django.shortcuts import render
 
-    .contact-info p {
-        margin: 8px 0;
+def homepage(request):
+    context = {
+        "restaurent_name": settings.RESTAURENT_NAME,
+        "restaurent_phone":settings.RESTAURENT_PHONE,
     }
-    .footer {
-        text-align: center;
-        margin-top: 30px;
-        color: #777;
-        font-size: 14px;
-    }
-   </style>
-  </head>
-  <body>
-    <div class="container">
-    <h1>Contact Us</h1>
-    <div class="contact-info">
-       <p><strong>Email:</strong> support@example.com</p>
-       <p><strong>Phone:</strong> +91 98765 43210</p>
-       <p><strong>Address:</strong> 123 Main street,Hyderbad,India</p>
-     </div>
-     <div class="footer">
-        <p>&copy; 2025 MyCompany.All Right Reserved.</P>             
-       </div>
-       </div>
-      </body>
-      </html>     
+    return render(request,"homepage.html",context) 
+
+    #urls.py
+    from django.urls import path
+    from. import views
+
+    urlpatterns = [
+        path('',views.homepage,name='homepage'),
+    ]
+
+    <!---templates/homepage.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ restaurent_name }}</title>
+    </head>
+    <body style="font-family:Arial,sans-serif; background-color:#f9f9f9; margin:0; padding:0;">
+
+    <!---Header--->
+    <div style="background-color:#4CAF50; PADDING:20PX; text-align:center; color:white;">
+       <h1 style="margin:0;">Welcome to {{ restaurent_name }}</h1>
+    </div>
+
+    <!---Content --->
+    <div style="padding:20px; text-align:center;">
+        <p style="font-size:18px;"> Contact us at:<strong>{{ restaurent_phone }}</strong></p>
+    <div>
+
+</body>
+</html>           
 
 
 
